@@ -4,12 +4,13 @@ version: 0.0.1
 homepage: https://github.com/avinashkranjan/logsuite
 
 environment:
-  sdk: '>=3.3.1 <4.0.0'
+  sdk: ">=3.3.1 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
+  screenshot: ^2.3.0
 
 dev_dependencies:
   flutter_test:
