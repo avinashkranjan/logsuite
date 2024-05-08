@@ -1,7 +1,7 @@
 name: logsuite
-description: "A new Flutter package project."
+description: Logsuite is a versatile plugin for Flutter apps, seamlessly capturing screenshots, crash logs, and network activity. With automated logging and storage, it ensures comprehensive monitoring and debugging, enhancing app stability and performance.
 version: 0.0.1
-homepage:
+homepage: https://github.com/avinashkranjan/logsuite
 
 environment:
   sdk: '>=3.3.1 <4.0.0'
