@@ -1,23 +1,22 @@
 # Learn.md
+
 ## Table of Contents
-1. [Introduction](#introduction-)
+1. [Introduction](#introduction)
 2. [Contributing](#contributing-)
    - [Development Workflow](#development-workflow)
    - [Issue Report Process](#issue-report-process)
    - [Pull Request Process](#pull-request-process-)
-3. [Setting Up on your machine](#setting-up-on-your-machine-)
+3. [Setting Up on your machine](#setting-up-on-your-machine)
 4. [Resources for Beginners](#resources-for-beginners-)
    - [Basics of Git and GitHub](#basics-of-git-and-github-)
-5. [Documentation](#documentation-)
+5. [Documentation](#documentation)
 6. [Code Reviews](#code-reviews-)
 7. [Feature Requests](#feature-requests-)
 8. [Spreading the Word](#spreading-the-word-)
 
 
-## Introduction 🖥️
-LogSuite is a Flutter plugin designed to capture screenshots every 100ms, record crash logs, and log network activity. 
-This plugin helps developers monitor and debug their applications efficiently by providing comprehensive logging capabilities. 
-The plugin follows good architectural practices and focuses on functionality and correctness.
+## Introduction
+LogSuite is a Flutter plugin designed to capture screenshots every 100ms, record crash logs, and log network activity. This plugin helps developers monitor and debug their applications efficiently by providing comprehensive logging capabilities. The plugin follows good architectural practices and focuses on functionality and correctness.
 
 
 ## Contributing 📝
@@ -40,16 +39,28 @@ We welcome contributions to logsuite! Follow these steps to contribute:
 ```bash
 git checkout -b <new-branch-name>
 ```
-4. **Make Changes** and commit them: Implement your changes and save them with a descriptive commit message.
-```bash
-git add .
-git commit -m "Describe your changes"
-```
-5. **Push Your Changes** to your fork: Upload your committed changes to your GitHub fork.
-   ```bash
-   git push origin <branch_name>
-   ```
-6. **Create a Pull Request ✅**: Propose your changes to be merged into the original repository.
+4. **Set Up the Environment**: Ensure you have the necessary dependencies installed.
+    ```bash
+    flutter pub get
+    ```
+5. **Develop Your Feature**: Implement your feature or bugfix. Follow the existing code style and conventions.
+
+6. **Testing**: Ensure that your changes are well-tested. Add new tests if necessary.
+    ```bash
+    flutter test
+    ```
+
+7. **Commit Your Changes**: Write clear and concise commit messages. Follow the convention of starting with a verb in the imperative mood, such as "Add", "Fix", or "Update".
+    ```bash
+    git add .
+    git commit -m "Add new feature"
+    ```
+
+8. **Push to Your Fork**: Push your changes to your forked repository.
+    ```bash
+    git push origin my-feature-branch
+    ```
+9. **Create a Pull Request ✅**: Propose your changes to be merged into the original repository.
    <br>
    
 ![image](https://github.com/debangi29/logsuite/assets/117537653/1f784ae3-c5b4-4842-8928-5b33f89e757b)
@@ -74,7 +85,7 @@ git commit -m "Describe your changes"
 4. Add screenshot it help in review.
 5. Submit your PR by giving the necesarry information in PR template and hang tight we will review it really soon.
 
-# Setting Up on your machine ⚙️
+## Setting Up on your machine
 ## Installation
 
 To use this plugin, add `flutter_log_capture` as a dependency in your `pubspec.yaml` file:
@@ -86,7 +97,7 @@ dependencies:
   flutter_log_capture: ^0.1.0
 ```
 
-## Usage
+### Usage
 
 ### Initializing the Plugin
 To initialize the plugin, call the `initialize` method in your `main` function:
@@ -120,7 +131,7 @@ class MyApp extends StatelessWidget {
 - [Learn GitHub from Scratch](https://www.youtube.com/watch?v=w3jLJU7DT5E)
 
 
-## 📍Documentation
+## Documentation
 - Document any significant changes or additions to the codebase.
 - Provide clear explanations of the functionality, usage, and any relevant considerations.
 
