@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:logsuite/screenshot_capture.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:screenshot/screenshot.dart';
 
 
@@ -12,7 +11,6 @@ class HomePage extends StatefulWidget {
 
 
 class _HomePageState extends State<HomePage> {
-  bool _isRequestingPermission = false;
   ScreenshotController screenshotController = ScreenshotController();
   @override
   Widget build(BuildContext context) {
@@ -80,57 +78,6 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-/*
- Future<void> _handleScreenshotCapture() async {
-   if (_isRequestingPermission) return;
 
-
-   setState(() {
-     _isRequestingPermission = true;
-   });
-
-
-   try {
-     if (await _requestPermissions()) {
-       ScreenshotCapture.initialize();
-     } else {
-       _showPermissionDeniedDialog();
-     }
-   } finally {
-     setState(() {
-       _isRequestingPermission = false;
-     });
-   }
- }
-
-
- Future<bool> _requestPermissions() async {
-   var status = await Permission.storage.status;
-   if (!status.isGranted) {
-     status = await Permission.storage.request();
-   }
-   return status.isGranted;
- }
-
-
- void _showPermissionDeniedDialog() {
-   showDialog(
-     context: context,
-     builder: (BuildContext context) {
-       return AlertDialog(
-         title: Text('Permission Denied'),
-         content: Text('Storage permission is required to capture screenshots.'),
-         actions: [
-           TextButton(
-             onPressed: () {
-               Navigator.of(context).pop();
-             },
-             child: Text('OK'),
-           ),
-         ],
-       );
-     },
-   );
- }*/
 }
 
