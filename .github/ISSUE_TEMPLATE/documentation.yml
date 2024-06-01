@@ -22,6 +22,6 @@ body:
       options:
         - label: "I agree to follow this project's Code of Conduct"
           required: true
-        - label: "I'm a GSSOC'24 contributor"
+        - label: "I'm a GirlScript Summer of Code 2024 contributor"
         - label: "I want to work on this issue"
         
