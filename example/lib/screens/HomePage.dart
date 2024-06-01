@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:logsuite/screenshot_capture.dart';
+
+import 'package:path_provider/path_provider.dart';
 import 'package:screenshot/screenshot.dart';
 
 
@@ -51,10 +53,21 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: () {
-                    // Button to cause a crash (for demonstration purposes)
                     throw Exception('Test crash');
                   },
                   child: Text('Cause Crash'),
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    textStyle: TextStyle(fontSize: 16),
+                  ),
+                ),
+                SizedBox(height: 16),
+                ElevatedButton(
+                  onPressed: () async {
+                    /* throw Exception('Test crash');*/
+                    ScreenshotCapture.showGallery(context);
+                  },
+                  child: Text('View Captured Screenshots'),
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                     textStyle: TextStyle(fontSize: 16),
@@ -78,6 +91,7 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
 
 }
 
