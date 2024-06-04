@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LogSuite</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f0f0;
+      color: #333;
+    }
+
+    header {
+      background: #007bff;
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    main {
+      padding: 20px;
+      max-width: 800px;
+      margin: 20px auto;
+      background: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2 {
+      color: #007bff;
+    }
+
+    ol, ul {
+      padding-left: 20px;
+    }
+
+    code {
+      background: #f1f1f1;
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+
+    pre {
+      background: #f8f8f8;
+      padding: 10px;
+      border-left: 3px solid #007bff;
+      overflow-x: auto;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .button-container button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .button-container button:hover {
+      background: #0056b3;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #f1f1f1;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1 id="logsuite" style="color:white">LogSuite</h1>
+  </header>
+  <main>
+    <p>LogSuite is a Flutter plugin designed to capture screenshots every 100ms, record crash logs, and log network activity. This plugin helps developers monitor and debug their applications efficiently by providing comprehensive logging capabilities. The plugin follows good architectural practices and focuses on functionality and correctness.</p>
+    
+    <h2 id="features">Features</h2>
+    <ol>
+      <li>
+        <p><strong>Screenshot Capture</strong>:</p>
+        <ul>
+          <li>Automatically captures screenshots every 100ms and saves them to device storage.</li>
+          <li>Inspired by UxCam/UserExperior for capturing screenshots without explicit permission.</li>
+        </ul>
+      </li>
+      <li>
+        <p><strong>Crash Log Recording</strong>:</p>
+        <ul>
+          <li>Automatically captures and records crash logs with relevant information when a crash occurs.</li>
+          <li>Saves crash logs to device storage and provides an API for retrieval.</li>
+        </ul>
+      </li>
+      <li>
+        <p><strong>Network Log Capture</strong>:</p>
+        <ul>
+          <li>Intercepts and logs all network requests and responses.</li>
+          <li>Saves network logs to device storage and exposes an API for retrieval.</li>
+        </ul>
+      </li>
+    </ol>
+    
+    <h2 id="architecture">Architecture</h2>
+    <p>LogSuite follows a modular architecture with a focus on clean code and maintainability. The plugin uses a combination of MVC and BLoC patterns to ensure a clear separation of concerns and to make the codebase easy to navigate and extend.</p>
+    
+    <h2 id="installation">Installation</h2>
+    <p>To use this plugin, add <code>flutter_log_capture</code> as a dependency in your <code>pubspec.yaml</code> file:</p>
+    <pre><code class="language-yaml">dependencies:
+  flutter:
+    sdk: flutter
+  flutter_log_capture: ^0.1.0
+</code></pre>
+    
+    <h2 id="usage">Usage</h2>
+    <h3 id="initializing-the-plugin">Initializing the Plugin</h3>
+    <p>To initialize the plugin, call the <code>initialize</code> method in your <code>main</code> function:</p>
+    <pre><code>import 'package:flutter/material.dart';
+import 'package:flutter_log_capture/flutter_log_capture.dart';
+
+void main() {
+  FlutterLogCapture.initialize();
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'LogSuite Demo',
+      home: HomePage(),
+    );
+  }
+}
+</code></pre>
+    
+    <h3 id="sample-application">Sample Application</h3>
+    <p>The sample application demonstrates the integration and usage of the plugin. It includes functionality for:</p>
+    <ul>
+      <li>Capturing screenshots manually.</li>
+      <li>Triggering a crash to test crash log recording.</li>
+      <li>Making a network request to test network log capture.</li>
+    </ul>
+    <p><code>HomePage Widget</code></p>
+    <pre><code>import 'package:flutter/material.dart';
+
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('LogSuite Demo'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                // Implement screenshot capture functionality
+              },
+              child: Text('Capture Screenshot'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // Trigger a crash for demonstration
+                throw Exception('Test crash');
+              },
+              child: Text('Cause Crash'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // Make a network request for demonstration
+              },
+              child: Text('Make Network Request'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+</code></pre>
+    
+    <h3 id="capturing-screenshots">Capturing Screenshots</h3>
+    <p>To capture screenshots every 100ms and save them to device storage, the ScreenshotCapture class in the plugin handles the functionality. Ensure it is properly initialized.</p>
+    
+    <h3 id="recording-crash-logs">Recording Crash Logs</h3>
+    <p>Crash logs are automatically captured using the CrashLogRecorder class. You can retrieve the crash logs through the provided API.</p>
+    
+    <h3 id="logging-network-activity">Logging Network Activity</h3>
+    <p>The NetworkLogCapture class intercepts and logs network requests and responses. These logs are saved to device storage and can be accessed via the API.</p>
+    
+    <h2 id="contributing">Contributing</h2>
+    <p>We welcome contributions! Please see the <a href="https://github.com/avinashkranjan/logsuite/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a> file for more details on how to get started.</p>
+    
+    <h2 id="license">License</h2>
+    <p>This project is licensed under the MIT License. See the <a href="https://github.com/avinashkranjan/logsuite/blob/main/LICENSE">LICENSE</a> file for more details.</p>
+    
+    <h2 id="contact">Contact</h2>
+    <p>For any questions or concerns, please open an issue on GitHub or contact me at <code>ranjan.avinash@hotmail.com</code>.</p>
+    <p>Thank you for using LogSuite!</p>
+
+    <div class="button-container">
+      <button onclick="showAlert('Capture Screenshot')">Capture Screenshot</button>
+      <button onclick="showAlert('Cause Crash')">Cause Crash</button>
+      <button onclick="showAlert('Make Network Request')">Make Network Request</button>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2024 LogSuite. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function showAlert(action) {
+      alert(action + ' button clicked');
+    }
+  </script>
+</body>
+
+</html>
