@@ -52,10 +52,16 @@ Thank you for considering contributing to LogSuite! We welcome contributions fro
 2. **Clone the Repository:**
    - If you haven't cloned the logsuite repository yet, you can do so by clicking on the "File" menu and selecting "Clone Repository."
    - Choose the logsuite repository from the list of repositories on GitHub and clone it to your local machine.
+     
+     ![image](https://github.com/PradnyaGaitonde/logsuite/assets/116059908/a77be6bc-c024-4807-a665-3e3751c1a10b)
+     
+     ![image](https://github.com/PradnyaGaitonde/logsuite/assets/116059908/09f4c063-784c-4c98-9009-4a758cf9b8ab)
 
 3. **Switch to the Correct Branch:**
    - Ensure you are on the branch that you want to submit a pull request for.
    - If you need to switch branches, you can do so by clicking on the "Current Branch" dropdown menu and selecting the desired branch.
+     
+     ![image](https://github.com/PradnyaGaitonde/logsuite/assets/116059908/d777dc8e-2c5a-4716-8de1-47efdfd44fa9)
 
 4. **Make Changes:**
    Make your changes to the code or files in the repository using your preferred code editor.
@@ -63,13 +69,19 @@ Thank you for considering contributing to LogSuite! We welcome contributions fro
 5. **Commit Changes:**
    - In GitHub Desktop, you'll see a list of the files you've changed. Check the box next to each file you want to include in the commit.
    - Enter a summary and description for your changes in the "Summary" and "Description" fields, respectively. Click the "Commit to <branch-name>" button to commit your changes to the local branch.
+     
+    ![image](https://github.com/PradnyaGaitonde/logsuite/assets/116059908/fead681a-c9b7-46b5-a5e1-5cad65042bc2)
 
 6. **Push Changes to GitHub:**
    After committing your changes, click the "Push origin" button in the top right corner of GitHub Desktop to push your changes to your forked repository on GitHub.
+   
+   ![image](https://github.com/PradnyaGaitonde/logsuite/assets/116059908/464a4c56-a936-4a64-b51d-fb99ff6ac10e)
 
-7. **Create a Pull Request:**
+8. **Create a Pull Request:**
   - Go to the GitHub website and navigate to your fork of the logsuite repository.
   - You should see a button to "Compare & pull request" between your fork and the original repository. Click on it.
+    
+    ![image](https://github.com/PradnyaGaitonde/logsuite/assets/116059908/86a2f8f4-d115-4aa4-968a-f7c1e4eb866d)
 
 8. **Review and Submit:**
    - On the pull request page, review your changes and add any additional information, such as a title and description, that you want to include with your pull request.
