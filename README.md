@@ -16,6 +16,14 @@ Welcome to the LogSuite website! LogSuite is a Flutter plugin designed to captur
 
 LogSuite helps developers monitor and debug their applications efficiently by providing comprehensive logging capabilities. The website offers a user-friendly interface to browse and interact with these logs and screenshots.
 
+## Figma Link
+
+### Figma Design [Dark Mode]
+[View Figma Design](https://www.figma.com/design/bUCRDxk3oCrrHxLUjQD3Up/Untitled?node-id=13-2&t=1o1AZOk2ujfBLNkK-1)
+
+### Figma Design [Light Mode]
+[View Figma Design](https://www.figma.com/design/bUCRDxk3oCrrHxLUjQD3Up/Untitled?node-id=13-2&t=1o1AZOk2ujfBLNkK-1)
+
 ## Features
 
 ### Screenshot Capture
