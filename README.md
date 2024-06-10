@@ -1,7 +1,9 @@
 # LogSuite Website
+
 Welcome to the LogSuite website! LogSuite is a Flutter plugin designed to capture screenshots every 100ms, record crash logs, and log network activity. This website provides an interface to view and manage these logs and screenshots.
 
-# Table of Contents
+## Table of Contents
+
 - Overview
 - Features
 - Architecture
@@ -19,24 +21,30 @@ LogSuite helps developers monitor and debug their applications efficiently by pr
 ## Figma Link
 
 ### Figma Design [Dark Mode]
+
 [View Figma Design](https://www.figma.com/design/bUCRDxk3oCrrHxLUjQD3Up/Untitled?node-id=13-2&t=1o1AZOk2ujfBLNkK-1)
 
 ### Figma Design [Light Mode]
+
 [View Figma Design](https://www.figma.com/design/bUCRDxk3oCrrHxLUjQD3Up/Untitled?node-id=13-2&t=1o1AZOk2ujfBLNkK-1)
 
 ## Features
 
 ### Screenshot Capture
+
 - View automatically captured screenshots every 100ms.
 - Inspect screenshots to identify UI issues and other anomalies.
   
 ### Crash Log Recording
+
 - View detailed crash logs with relevant information.
 - Filter and search through crash logs to pinpoint issues.
   
 ### Network Log Capture
+
 - View logs of all network requests and responses.
 - Analyze network activity to debug API interactions.
   
 ### Architecture
+
 The LogSuite website is built with modern web technologies to ensure a responsive and intuitive user experience. It follows a modular architecture to maintain clean code and scalability.
