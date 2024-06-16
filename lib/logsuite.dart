@@ -6,7 +6,7 @@ import 'package:logsuite/screenshot_capture.dart';
 
 class Logsuite {
   static void initialize() {
-    ScreenshotCapture.initialize();
+   // ScreenshotCapture.initialize();
     // CrashLogRecorder.initialize();
     // NetworkLogCapture.initialize();
   }
