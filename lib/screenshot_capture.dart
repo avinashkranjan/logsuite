@@ -1,106 +1,60 @@
+// lib/screenshot_capture.dart
+
 import 'dart:async';
-import 'dart:typed_data';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-
-import 'package:screenshot/screenshot.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:path/path.dart';
 import 'dart:io';
-
-
-import 'ScreenshotGallery.dart';
-
+import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:screenshot/screenshot.dart';
 
 class ScreenshotCapture {
-  final ScreenshotController controller;
-  ScreenshotCapture(this.controller);
-  static Timer? _timer;
+  late ScreenshotController screenshotController;
+  Timer? _timer;
+  bool _isRecording = false;
 
-
-  Future<void> initialize() async {
-    try {
-      await Future.delayed(Duration(seconds: 1));
-
-
-      _timer = Timer.periodic(const Duration(milliseconds: 100), (timer) async {
-        try {
-          Uint8List? image = await controller.capture();
-          if (image != null) {
-            await saveImage(image);
-          } else {
-            print('Failed to capture screenshot. Image is null.');
-          }
-        } catch (e) {
-          print('Error capturing screenshot: $e');
-        }
-      });
-    } catch (e) {
-      print('Error starting timer: $e');
-    }
-
-
+  ScreenshotCapture() {
+    screenshotController = ScreenshotController();
   }
-  static void showGallery(BuildContext context) async {
-    List<String> screenshots = await getSavedScreenshots();
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => ScreenshotGallery(screenshotPaths: screenshots),
-      ),
+
+  Future<void> startRecording() async {
+    if (_isRecording) return;
+    _isRecording = true;
+
+    _timer = Timer.periodic(const Duration(milliseconds: 100), (timer) async {
+      if (_isRecording) {
+        await _captureAndSaveScreenshot();
+      } else {
+        timer.cancel();
+      }
+    });
+  }
+
+  void stopRecording() {
+    _isRecording = false;
+    _timer?.cancel();
+  }
+
+  Future<void> _captureAndSaveScreenshot() async {
+    try {
+      final image = await screenshotController.capture();
+      if (image == null) return;
+
+      final directory = await getExternalStorageDirectory();
+      if (directory == null) return;
+
+      final timestamp = DateTime.now().millisecondsSinceEpoch;
+      final filePath = '${directory.path}/screenshot_$timestamp.png';
+
+      final file = File(filePath);
+      await file.writeAsBytes(image);
+    } catch (e) {
+      debugPrint('Error capturing screenshot: $e');
+    }
+  }
+
+  Widget wrapWithScreenshot(BuildContext context, Widget child) {
+    return Screenshot(
+      controller: screenshotController,
+      child: child,
     );
   }
-
-
-  static Future<void> stop() async {
-    _timer?.cancel();
-    _timer = null;
-    print('Screenshot capture stopped.');
-  }
-
-
-  static Future<List<String>> getSavedScreenshots() async {
-    try {
-      Directory dir = Directory('/storage/emulated/0/Download/logsuite');
-      List<FileSystemEntity> files = dir.listSync();
-      List<String> screenshots = [];
-
-
-      for (var file in files) {
-        if (file is File && file.path.endsWith('.png')) {
-          screenshots.add(file.path);
-        }
-      }
-
-
-      return screenshots;
-    } catch (e) {
-      print('Error retrieving screenshots: $e');
-      return [];
-    }
-  }
-
-
-  static Future<void> saveImage(Uint8List image) async {
-    try {
-      Directory dir = Directory('/storage/emulated/0/Download/logsuite');
-      if (!await dir.exists()) {
-        await dir.create(recursive: true);
-      }
-
-
-      String fileName = 'log_${DateTime.now().millisecondsSinceEpoch}.png';
-      String filePath = join(dir.path, fileName);
-
-
-      File file = File(filePath);
-      await file.writeAsBytes(image);
-      print('Screenshot saved to $filePath');
-    } catch (e) {
-      print('Error saving screenshot: $e');
-    }
-  }
 }
-
-
-
