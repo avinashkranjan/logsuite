@@ -17,6 +17,10 @@ class NetworkLogger {
     _log.clear();
   }
 
+  List<String> getLogs() {
+    return _log;
+  }
+
   void stopLogging() async {
     final directory = await getExternalStorageDirectory();
     if (directory == null) return;
