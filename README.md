@@ -2,6 +2,11 @@
 
 LogSuite is a Flutter plugin designed to capture screenshots every 100ms, record crash logs, and log network activity. This plugin helps developers monitor and debug their applications efficiently by providing comprehensive logging capabilities. The plugin follows good architectural practices and focuses on functionality and correctness.
 
+<a href="https://pub.dev/packages/logsuite">
+   <img src="https://forthebadge.com/images/badges/check-it-out.svg">
+</a>
+  
+
 ## Features
 
 1. **Screenshot Capture**:
