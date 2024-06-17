@@ -1,10 +1,16 @@
-# Pull Request Template
+<!--
+Thank you for sending the PR! We appreciate you spending the time to work on these changes.
+Help us understand your motivation by explaining why you decided to make this change.
+Happy Contributing!
+-->
 
 ## Description
 
 Please include a summary of the changes and the related issue. Please also include relevant motivation and context. List any dependencies that are required for this change.
 
-Fixes # (issue)
+## Fixes #(issue_no)
+
+<!-- Replace `issue_no` with the issue number which is fixed in this PR -->
 
 ## Type of change
 
