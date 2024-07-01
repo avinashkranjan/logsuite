@@ -11,11 +11,13 @@ import 'package:http_interceptor/http_interceptor.dart';
 import 'screenshot_capture.dart';
 import 'network_logger.dart';
 import 'crash_logger.dart';
+import 'log_export.dart';
 
 class LogSuite {
   final ScreenshotCapture screenshotCapture = ScreenshotCapture();
   final NetworkLogger networkLogger = NetworkLogger();
   final CrashLogger crashLogger = CrashLogger();
+  List<String> _logs = [];
 
   void startRecording() {
     screenshotCapture.startRecording();
@@ -27,6 +29,14 @@ class LogSuite {
     networkLogger.stopLogging();
   }
 
+  void addLog(String log) {
+    _logs.add(log);
+  }
+
+  void exportLogs(String format, String filePath) {
+    LogExport.exportLogs(_logs, format, filePath);
+  }
+  
   Widget wrapWithScreenshot(BuildContext context, Widget child) {
     return screenshotCapture.wrapWithScreenshot(context, child);
   }
@@ -34,4 +44,5 @@ class LogSuite {
   InterceptedClient get httpClient => networkLogger.httpClient;
 
   Future<List<File>> getCrashLogs() => crashLogger.getCrashLogs();
+
 }
