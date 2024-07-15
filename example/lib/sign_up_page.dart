@@ -1,4 +1,4 @@
-iimport 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -10,6 +10,13 @@ class _SignUpPageState extends State<SignUpPage> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
 
   Future<void> _signUp() async {
     try {
@@ -31,7 +38,7 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sign Up'),
+        title: Text(MyApp.appTitle), // Accessing app title from MyApp
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
@@ -51,6 +58,10 @@ class _SignUpPageState extends State<SignUpPage> {
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your email';
+                  }
+                  // More robust email validation
+                  if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
+                    return 'Please enter a valid email';
                   }
                   return null;
                 },
@@ -93,4 +104,3 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 }
-
