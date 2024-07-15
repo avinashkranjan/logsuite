@@ -1,29 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:logsuite/logsuite.dart';
+import 'sign_up_page.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  LogSuite.initialize(); // Initialize LogSuite
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
-  final LogSuite logSuite = LogSuite();
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: logSuite.wrapWithScreenshot(
-        context,
-        HomeScreen(logSuite: logSuite),
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
       ),
+      home: SignUpPage(),
     );
   }
 }
 
-class HomeScreen extends StatelessWidget {
-  final LogSuite logSuite;
-
-  HomeScreen({required this.logSuite});
+class SignUpPage extends StatelessWidget {
+  final LogSuite logSuite = LogSuite();
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +51,7 @@ class HomeScreen extends StatelessWidget {
             ElevatedButton(
               onPressed: () async {
                 final response = await logSuite.httpClient.get(
-                    Uri.parse('https://jsonplaceholder.typicode.com/todos/1'));
+                  Uri.parse('https://jsonplaceholder.typicode.com/todos/1'));
                 print(response.body);
               },
               child: Text('Make Network Request'),
