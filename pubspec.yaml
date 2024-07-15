@@ -4,8 +4,8 @@ version: 0.0.1
 homepage: https://github.com/avinashkranjan/logsuite
 
 environment:
-  sdk: ">=3.3.1 <4.0.0"
-  flutter: ">=1.17.0"
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=2.0.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -13,9 +13,9 @@ dependencies:
   path_provider: ^2.1.3
   screenshot: ^2.5.0
   http_interceptor: ^1.0.2
-  logsuite: ^latest_version  # Add the correct version of LogSuite plugin
-  firebase_auth: ^latest_version  # For authentication
-  firebase_core: ^latest_version  # For initializing Firebase
+  logsuite: ^0.0.1  # Replace with the correct version of LogSuite plugin
+  firebase_auth: ^3.0.0  # Replace with a specific version of Firebase Auth
+  firebase_core: ^1.10.0  # Replace with a specific version of Firebase Core
 
 dev_dependencies:
   flutter_test:
@@ -23,10 +23,6 @@ dev_dependencies:
   flutter_lints: ^3.0.0
   mockito: ^5.4.4
 
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
-
-# The following section is specific to Flutter packages.
 flutter:
 
 # To add assets to your package, add an assets section, like this:
