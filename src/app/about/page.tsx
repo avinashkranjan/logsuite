@@ -56,9 +56,10 @@ const About = () => {
               </h2>
 
               <p className="max-w-[85%] leading-normal text-muted-foreground text-xs lg:text-xl sm:leading-7 font-medium dark:text-slate-300 mb-20">
-                The product can personalize user experiences by understanding
-                individual preferences and tailoring recommendations or content
-                based on user behavior and historical data.
+                LogSuite provides comprehensive logging with real-time
+                screenshot capture, automatic crash log recording, and detailed
+                network activity monitoring to enhance application debugging and
+                stability.
               </p>
             </div>
 
