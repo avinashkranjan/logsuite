@@ -1,15 +1,12 @@
+import Footer from "@/components/ui/Footer";
+import Navbar from "@/components/ui/Navbar";
 import Head from "next/head";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-100 text-gray-800">
-      <Head>
-        <title>LogSuite</title>
-      </Head>
-      <header className="bg-blue-500 text-white text-center py-4 shadow-md">
-        <h1 className="text-2xl">LogSuite</h1>
-      </header>
-      <main className="p-6 mx-auto mt-6 bg-white shadow-lg max-w-3xl">
+    <div className="bg-gray-100 text-gray-800 top-52 mt-50 dark:bg-gray-900 ">
+      <Navbar />
+      <main className="p-20 mt-50 top-50 mx-auto bg-white dark:bg-black dark:text-white shadow-lg max-w-3xl">
         <p>
           LogSuite is a Flutter plugin designed to capture screenshots every
           100ms, record crash logs, and log network activity. This plugin helps
@@ -17,7 +14,7 @@ export default function Home() {
           providing comprehensive logging capabilities. The plugin follows good
           architectural practices and focuses on functionality and correctness.
         </p>
-        <h2 className="text-blue-500 mt-4">Features</h2>
+        <h2 className=" dark:text-slate-100 text-blue-500 mt-4">Features</h2>
         <ol className="list-decimal pl-5">
           <li>
             <strong>Screenshot Capture:</strong>
@@ -56,24 +53,30 @@ export default function Home() {
             </ul>
           </li>
         </ol>
-        <h2 className="text-blue-500 mt-4">Architecture</h2>
+        <h2 className="text-blue-500 dark:text-slate-100  mt-4">
+          Architecture
+        </h2>
         <p>
           LogSuite follows a modular architecture with a focus on clean code and
           maintainability. The plugin uses a combination of MVC and BLoC
           patterns to ensure a clear separation of concerns and to make the
           codebase easy to navigate and extend.
         </p>
-        <h2 className="text-blue-500 mt-4">Installation</h2>
-        <p>
+        <h2 className="text-blue-500 mt-4 dark:text-slate-100 ">
+          Installation
+        </h2>
+        <p className="dark:bg-gray-800 dark:text-gray-300">
           To use this plugin, add{" "}
-          <code className="bg-gray-200 px-2 py-1 rounded">
+          <code className="bg-gray-200 dark:bg-black dark:text-gray-300 px-2 py-1 rounded">
             flutter_log_capture
           </code>{" "}
           as a dependency in your{" "}
-          <code className="bg-gray-200 px-2 py-1 rounded">pubspec.yaml</code>{" "}
+          <code className="bg-gray-200 dark:bg-black dark:text-gray-300 px-2 py-1 rounded">
+            pubspec.yaml
+          </code>{" "}
           file:
         </p>
-        <pre className="bg-gray-200 p-4 border-l-4 border-blue-500 overflow-x-auto">
+        <pre className="bg-gray-200 p-4 border-l-4 dark:bg-gray-700 dark:text-white border-blue-500 overflow-x-auto">
           <code>
             {`dependencies:
               flutter:
@@ -81,15 +84,20 @@ export default function Home() {
               flutter_log_capture: ^0.1.0`}
           </code>
         </pre>
-        <h2 className="text-blue-500 mt-4">Usage</h2>
-        <h3 className="text-blue-500 mt-2">Initializing the Plugin</h3>
+        <h2 className="text-blue-500 mt-4 ">Usage</h2>
+        <h3 className="text-blue-500 mt-2 ">Initializing the Plugin</h3>
         <p>
           To initialize the plugin, call the{" "}
-          <code className="bg-gray-200 px-2 py-1 rounded">initialize</code>{" "}
+          <code className="bg-gray-200 dark:bg-black dark:text-gray-300 px-2 py-1 rounded">
+            initialize
+          </code>{" "}
           method in your{" "}
-          <code className="bg-gray-200 px-2 py-1 rounded">main</code> function:
+          <code className="bg-gray-200 dark:bg-black dark:text-gray-300 px-2 py-1 rounded">
+            main
+          </code>{" "}
+          function:
         </p>
-        <pre className="bg-gray-200 p-4 border-l-4 border-blue-500 overflow-x-auto">
+        <pre className="bg-gray-200 p-4 border-l-4 border-blue-500 dark:bg-gray-700 dark:text-white overflow-x-auto">
           <code>
             {`import 'package:flutter/material.dart';
               import 'package:flutter_log_capture/flutter_log_capture.dart';
@@ -121,9 +129,11 @@ export default function Home() {
           <li>Making a network request to test network log capture.</li>
         </ul>
         <p>
-          <code className="bg-gray-200 px-2 py-1 rounded">HomePage Widget</code>
+          <code className="bg-gray-200 px-2 py-1 dark:bg-black dark:text-gray-300 rounded">
+            HomePage Widget
+          </code>
         </p>
-        <pre className="bg-gray-200 p-4 border-l-4 border-blue-500 overflow-x-auto">
+        <pre className="bg-gray-200 p-4 border-l-4 dark:bg-gray-700 dark:text-white border-blue-500 overflow-x-auto">
           <code>
             {`import 'package:flutter/material.dart';
 
@@ -208,7 +218,7 @@ export default function Home() {
         <p>
           For any questions or concerns, please open an issue on GitHub or
           contact me at{" "}
-          <code className="bg-gray-200 px-2 py-1 rounded">
+          <code className="bg-gray-200 dark:bg-black dark:text-gray-300 px-2 py-1 rounded">
             ranjan.avinash@hotmail.com
           </code>
           .
@@ -226,9 +236,7 @@ export default function Home() {
           </button>
         </div>
       </main>
-      <footer className="text-center py-4 bg-gray-200 mt-6">
-        <p>&copy; 2024 LogSuite. All rights reserved.</p>
-      </footer>
+      <Footer />
     </div>
   );
 }
